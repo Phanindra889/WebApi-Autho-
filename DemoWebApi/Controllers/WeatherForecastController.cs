@@ -30,5 +30,22 @@ namespace DemoWebApi.Controllers
             })
             .ToArray();
         }
+        [HttpPut]
+        public IEnumerable<WeatherForecast> PostWeatherData()
+        {
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+            .ToArray();
+        }
+        [HttpDelete]
+        public void Delete()
+        {
+            Console.Write("String got deleted!!");
+            Console.WriteLine("           0");
+        }
     }
 }
